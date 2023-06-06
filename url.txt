@@ -1,2 +1,0 @@
-firebase: https://db-lathienvu-default-rtdb.asia-southeast1.firebasedatabase.app/news.json
-hosting: https://11207475-lathienvu.000webhostapp.com/home.html
