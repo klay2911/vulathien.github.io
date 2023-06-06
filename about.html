@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Thiet ke web">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="author" content="La Thien Vu">
+        <title>Midterm| Trường Đại học Kinh tế Quốc dân</title>
+        <!--favicon-->
+        <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+        <!--css-->
+        <link rel="stylesheet" href="./style.css" type="text/css">
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon/css" rel="stlesheet">
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+        <style>
+            body{
+                background-image: url("img/back2.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;  
+            }
+            #video_gioi_thieu{
+                position: relative;
+                padding: 20px;
+                margin-left: 20%;
+                margin-top: 5%;
+            }
+        </style>
+        <script type="text/javascript">
+            window.onload = function(){ 
+                let menu = document.querySelector('#menu-icon');
+                let navbar = document.querySelector('.nav-flex');
+                menu.onclick = () => {
+                menu.classList.toggle('bx-x');
+                navbar.classList.toggle('open');
+            }
+        };
+        </script>
+    </head>
+    <body>
+        <div class="about-flex-container">
+            <div class="header-flex">
+                <div class="first-flex">
+                    <header>
+                        <a href="home.html" class="logo" style="margin-right:4%;">
+                            <img src="./img/lotus.png">
+                        </a>
+                        <ul class="nav-flex">
+                            <li><a href="home.html" class="active">Home</a></li>
+                            <li><a href="page.html">Programs</a></li>
+                            <li><a href="about.html">About us</a></li>
+                            <!--li><a href="news.html" style="border-right:none">News</a><--/li>
+                        </ul>
+                        <div>
+                            <div class="bx bx-menu" id="menu-icon"></div>
+                        </div>
+                    </header>
+                </div>
+                <div>
+                    <ul class="number">
+                        <li>0000</li>
+                        <li>0001</li>
+                        <li>0002</li>
+                        <li>0003</li>
+                        <li>0004</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="video_gioi_thieu">
+                <video width="800" height="400" controls>
+                    <source src="about_us.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                  </video>
+            </div>
+        </div>
+    </body>
+</html>

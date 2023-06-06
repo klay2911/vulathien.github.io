@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Thiet ke web">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="author" content="La Thien Vu">
+        <title>Midterm| Trường Đại học Kinh tế Quốc dân</title>
+        <!--favicon-->
+        <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+        <!--css-->
+        <link rel="stylesheet" href="./style.css" type="text/css">
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon/css" rel="stlesheet">
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+        <style>
+            body{
+                background-image: url("img/back2.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;  
+            }
+            h2{
+                position: absolute;
+                left:10%;
+                top: 15%;
+                color: rgb(31, 141, 46);
+                z-index: 10000;
+                font-size: 50px;
+            }
+            .new{
+              display: inline-flexbox;
+              position: relative;
+              flex-direction: column;
+              border: 2px solid white;
+              float:left;
+              width: 600px;
+              height: 110px;
+              overflow-wrap: break-word;
+              padding: 30px;
+              padding-top:10px;
+              margin: 10px;
+              cursor: pointer;
+              text-decoration: none;
+              color: white;
+              z-index: 10000;
+            }
+            #ban_tin div{
+                font-size: 10px;
+            }
+            #ban_tin a{
+                font-size: 18px;
+                text-decoration: solid;
+                font-weight: 600;
+            }
+        </style>
+        <script type="text/javascript">
+            window.onload = function(){ 
+                let menu = document.querySelector('#menu-icon');
+                let navbar = document.querySelector('.nav-flex');
+                menu.onclick = () => {
+                menu.classList.toggle('bx-x');
+                navbar.classList.toggle('open');
+            }
+};
+        </script>
+    </head>
+    <body>
+        <div class="news-flex-container">
+            <div class="header-flex">
+                    <header>
+                        <a href="home.html" class="logo" style="margin-right:4%;">
+                            <img src="./img/lotus.png">
+                        </a>
+                        <ul class="nav-flex">
+                            <li><a href="home.html" class="active">Home</a></li>
+                            <li><a href="page.html">Programs</a></li>
+                            <li><a href="about.html">About us</a></li>
+                            <li><a href="news.html" style="border-right:none">News</a></li>
+                        </ul>
+                        <div>
+                            <div class="bx bx-menu" id="menu-icon"></div>
+                        </div>
+                    </header>
+            </div>
+            <div class="bg-flex" style="width: 100%;"></div>
+                <h2>news</h2>
+                <div id="ban_tin"></div>
+        <script type="text/javascript">
+        function loadDataNews() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.open("GET", "https://db-lathienvu-default-rtdb.asia-southeast1.firebasedatabase.app/news.json", true);
+                xhttp.send();
+                xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                // In dữ liệu các bản tin ở đây
+                let news = JSON.parse(this.responseText);
+                console.log(news);
+    
+                        for (var i = 0; i<=news.article.length-1; i++) {
+                        // Xem tên của sản phẩm thứ i là gì?
+                        console.log(news.article[i].title);
+    
+                        const nodeNew = document.createElement("div");
+                        nodeNew.setAttribute("class","new")
+    
+                        //Title
+                        const nodeTitle = document.createElement("a");
+                        nodeTitle.appendChild(document.createTextNode(news.article[i].title));
+                        nodeNew.append(nodeTitle)
+
+                        //Author
+                         const nodeAuthor = document.createElement("div");
+                         nodeAuthor.appendChild(document.createTextNode("Tác giả: " + news.article[i].author));
+                         nodeNew.append(nodeAuthor)
+
+                         //Post
+                         const nodePost = document.createElement("div");
+                         nodePost.appendChild(document.createTextNode("Ngày đăng: " + news.article[i].post));
+                         nodeNew.append(nodePost)
+
+                         //View
+                         const nodeView = document.createElement("div");
+                         nodeView.appendChild(document.createTextNode("Lượt xem: " + news.article[i].view));
+                         nodeNew.append(nodeView)
+    
+                         document.getElementById("ban_tin").appendChild(nodeNew)
+                        }
+                    }
+                };
+            }
+        loadDataNews();
+        </script>
+    </body>
+</html>
